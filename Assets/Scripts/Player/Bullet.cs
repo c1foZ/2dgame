@@ -11,9 +11,16 @@ public class Bullet : MonoBehaviour
     }
     private void Start()
     {
-        rb.AddForce(Vector2.right * _bulletSpeed, ForceMode2D.Impulse);
-        Destroy(gameObject, _destroyBullet);
-
+        if (GameObject.FindGameObjectWithTag("Player").transform.localScale.x > 0)
+        {
+            rb.velocity = transform.right * _bulletSpeed;
+            Destroy(gameObject, _destroyBullet);
+        }
+        if (GameObject.FindGameObjectWithTag("Player").transform.localScale.x < 0)
+        {
+            rb.velocity = -transform.right * _bulletSpeed;
+            Destroy(gameObject, _destroyBullet);
+        }
     }
     private void OnCollisionEnter2D(Collision2D collisionInfo)
     {

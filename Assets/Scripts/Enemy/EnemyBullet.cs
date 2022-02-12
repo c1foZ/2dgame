@@ -11,8 +11,16 @@ public class EnemyBullet : MonoBehaviour
     }
     private void Start()
     {
-        rb.AddForce(Vector2.left * _bulletSpeed, ForceMode2D.Impulse);
-        Destroy(gameObject, _destroyBullet);
+        if (GameObject.FindGameObjectWithTag("Enemy").transform.localScale.x > 0)
+        {
+            rb.AddForce(Vector2.left * _bulletSpeed, ForceMode2D.Impulse);
+            Destroy(gameObject, _destroyBullet);
+        }
+        if (GameObject.FindGameObjectWithTag("Enemy").transform.localScale.x < 0)
+        {
+            rb.AddForce(Vector2.right * _bulletSpeed, ForceMode2D.Impulse);
+            Destroy(gameObject, _destroyBullet);
+        }
 
     }
     private void OnCollisionEnter2D(Collision2D collisionInfo)
