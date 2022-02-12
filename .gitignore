@@ -1,0 +1,11 @@
+.vscode
+UserSettings
+Assembly-CSharp.csproj
+bestgameever.sln
+.DS_Store
+Library/
+Temp/
+obj/
+Assets/fantasy-frost-environment
+Assets/TextMesh Pro
+Game/
