@@ -29,7 +29,7 @@ public class EnemySpawner : MonoBehaviour
             else
             {
                 _spawnedEnemy.transform.position = spawnLeft.position;
-                _spawnedEnemy.transform.localScale = new Vector3(-0.5f, 1f, 1f);
+                _spawnedEnemy.transform.localScale = new Vector3(0.16f, 0.16f, 0.16f);
                 _spawnedEnemy.GetComponent<EnemyMovement>().speed = -_randomSpeed;
             }
         }

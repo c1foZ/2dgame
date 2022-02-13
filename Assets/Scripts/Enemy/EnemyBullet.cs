@@ -12,12 +12,12 @@ public class EnemyBullet : MonoBehaviour
     }
     private void Start()
     {
-        if (GameObject.FindGameObjectWithTag(_enemy).transform.localScale.x > 0)
+        if (GameObject.FindGameObjectWithTag(_enemy).transform.localScale.x < 0)
         {
             rb.AddForce(Vector2.left * _bulletSpeed, ForceMode2D.Impulse);
             Destroy(gameObject, _destroyBullet);
         }
-        if (GameObject.FindGameObjectWithTag(_enemy).transform.localScale.x < 0)
+        if (GameObject.FindGameObjectWithTag(_enemy).transform.localScale.x > 0)
         {
             rb.AddForce(Vector2.right * _bulletSpeed, ForceMode2D.Impulse);
             Destroy(gameObject, _destroyBullet);
