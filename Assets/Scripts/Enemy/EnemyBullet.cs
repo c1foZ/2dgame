@@ -5,18 +5,19 @@ public class EnemyBullet : MonoBehaviour
     private float _destroyBullet = 3f;
     private float _bulletSpeed = 20f;
     private string _player = "Player";
+    private string _enemy = "Enemy";
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
     private void Start()
     {
-        if (GameObject.FindGameObjectWithTag("Enemy").transform.localScale.x > 0)
+        if (GameObject.FindGameObjectWithTag(_enemy).transform.localScale.x > 0)
         {
             rb.AddForce(Vector2.left * _bulletSpeed, ForceMode2D.Impulse);
             Destroy(gameObject, _destroyBullet);
         }
-        if (GameObject.FindGameObjectWithTag("Enemy").transform.localScale.x < 0)
+        if (GameObject.FindGameObjectWithTag(_enemy).transform.localScale.x < 0)
         {
             rb.AddForce(Vector2.right * _bulletSpeed, ForceMode2D.Impulse);
             Destroy(gameObject, _destroyBullet);

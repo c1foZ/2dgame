@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054452322}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6623, y: 0, z: 0}
+  m_LocalPosition: {x: 0.6623, y: -0.69, z: 0}
   m_LocalScale: {x: 1, y: 2.471, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 1891950239416948196}
   - component: {fileID: 1891950239416948192}
   - component: {fileID: 382187367}
+  - component: {fileID: 319145498}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -61,7 +62,7 @@ Transform:
   m_GameObject: {fileID: 1891950239416948197}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.91, y: 0.07, z: 0}
-  m_LocalScale: {x: 0.46967, y: 0.46967, z: 0.46967}
+  m_LocalScale: {x: 0.6647709, y: 0.6647709, z: 0.6647709}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1054452323}
@@ -102,18 +103,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.12303573}
+  m_Offset: {x: 0.024564683, y: -0.5897637}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.9, y: 2.22}
+    oldSize: {x: 5.12, y: 2.56}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.492144}
+  m_Size: {x: 0.60696614, y: 1.2219335}
   m_EdgeRadius: 0
 --- !u!212 &1891950239416948196
 SpriteRenderer:
@@ -153,12 +154,12 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 982664635
+  m_SortingLayerID: -1164765043
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 08c91a7677e66844281a99aaf6ea36f1, type: 3}
-  m_Color: {r: 0.5849056, g: 0.08001069, b: 0.08001069, a: 1}
-  m_FlipX: 1
+  m_Sprite: {fileID: 21300000, guid: 402d8276bb2a045ef90b1f34a697e947, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -193,3 +194,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1054452323}
   bulletPrefab: {fileID: 8138645733366081288, guid: 3c73a034ef5a549878db2deb620a9fd9, type: 3}
+--- !u!95 &319145498
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891950239416948197}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e6a56db008c448ce9c81213241870dd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -4,6 +4,10 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Transform body;
+    private Animator anim;
+    private string WALK_ANIMATION = "Walk";
+    private string DIE_ANIMATION = "Die";
+    private bool _isMoving;
     private bool _isFlipped;
     private float _movementX;
     private float _sideForce = 8f;
@@ -16,15 +20,20 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         body = GetComponent<Transform>();
+        anim = GetComponent<Animator>();
     }
     private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.W) && _isOnGround)
+        if (!_isMoving)
         {
-            rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
-            _isOnGround = !_isOnGround;
+            if (Input.GetKey(KeyCode.W) && _isOnGround)
+            {
+                rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+                _isOnGround = !_isOnGround;
+            }
+            PlayerMovementKeyboard();
         }
-        PlayerMovementKeyboard();
+        AnimatePlayer();
         if (rb.position.y < -10)
         {
             GameManager.Instance.RestartRoundDelay(1f);
@@ -34,11 +43,12 @@ public class PlayerMovement : MonoBehaviour
     {
         _movementX = Input.GetAxisRaw("Horizontal");
         body.position += new Vector3(_movementX, 0f, 0f) * _sideForce * Time.deltaTime;
+
         if (Input.GetKey(KeyCode.A))
         {
             FlipDirection("Left");
         }
-        if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
             FlipDirection("Right");
         }
@@ -55,7 +65,21 @@ public class PlayerMovement : MonoBehaviour
             body.localScale = new Vector3(body.localScale.x * -1, body.localScale.y, body.localScale.z);
             _isFlipped = true;
         }
-
+    }
+    private void AnimatePlayer()
+    {
+        if (_movementX > 0)
+        {
+            anim.SetBool(WALK_ANIMATION, true);
+        }
+        else if (_movementX < 0)
+        {
+            anim.SetBool(WALK_ANIMATION, true);
+        }
+        else
+        {
+            anim.SetBool(WALK_ANIMATION, false);
+        }
     }
     private void OnCollisionEnter2D(Collision2D colliderInfo)
     {
@@ -65,7 +89,8 @@ public class PlayerMovement : MonoBehaviour
         }
         if (colliderInfo.collider.tag == _enemy || colliderInfo.collider.tag == _enemyBullet)
         {
-            Destroy(gameObject);
+            anim.SetBool(DIE_ANIMATION, true);
+            _isMoving = !_isMoving;
             GameManager.Instance.RestartRoundDelay(2f);
         }
     }
