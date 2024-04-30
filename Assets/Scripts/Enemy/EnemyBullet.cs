@@ -3,7 +3,7 @@ public class EnemyBullet : MonoBehaviour
 {
     private Rigidbody2D rb;
     private float _destroyBullet = 3f;
-    private float _bulletSpeed = 20f;
+    private float _bulletSpeed = 10f;
     private string _player = "Player";
     private string _enemy = "Enemy";
     private void Awake()
