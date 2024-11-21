@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,7 +16,6 @@ public class PlayerMovement : MonoBehaviour
     private bool _isOnGround;
     private string _floor = "Floor";
     private string _enemy = "Enemy";
-    private string _enemyBullet = "EnemyBullet";
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -87,12 +87,26 @@ public class PlayerMovement : MonoBehaviour
         {
             _isOnGround = true;
         }
-        if (colliderInfo.collider.tag == _enemy || colliderInfo.collider.tag == _enemyBullet)
+        if (colliderInfo.collider.tag == _enemy)
         {
-            anim.SetBool(DIE_ANIMATION, true);
-            _isMoving = !_isMoving;
-            GameManager.Instance.RestartRoundDelay(2f);
+            Die();
         }
     }
+    public void Die()
+    {
+        anim.SetBool(DIE_ANIMATION, true); 
+        _isMoving = true; 
+        rb.velocity = Vector2.zero;
+        StartCoroutine(DisableMovementForDelay(2f));
+        GameManager.Instance.RestartRoundDelay(2f); 
+        
+    }
+    private IEnumerator DisableMovementForDelay(float delay)
+    {
+         _isMoving = true; 
+        yield return new WaitForSeconds(delay); 
+        _isMoving = false;  
+    }
+   
 }
 
