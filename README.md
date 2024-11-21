@@ -14,7 +14,7 @@ git clone https://github.com/c1foZ/zombieonslaught.git
 
 ### Requirements:
 
-- Unity version: **2021.2.8f1** or higher.
+- Unity version: **2021.2.8f1**.
 
 ### Run the Game:
 
