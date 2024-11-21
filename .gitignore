@@ -6,3 +6,5 @@ Library/
 Temp/
 obj/
 Logs/
+
+*.sln
