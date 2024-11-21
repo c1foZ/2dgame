@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     private void RestartRound()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        ScoreManager.Instance.ResetScore();
     }
     public void QuitGame()
     {

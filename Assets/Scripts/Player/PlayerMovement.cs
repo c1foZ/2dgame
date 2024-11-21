@@ -110,7 +110,6 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = Vector2.zero;
         StartCoroutine(DisableMovementForDelay(2f));
         GameManager.Instance.RestartRoundDelay(2f); 
-        
     }
     private IEnumerator DisableMovementForDelay(float delay)
     {

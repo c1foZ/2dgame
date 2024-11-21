@@ -1482,13 +1482,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &161388790750595417
+--- !u!1001 &1812675086
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 185392063, guid: 5a3c93d85711f457ca056d3302f2e5cf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 835
+      objectReference: {fileID: 0}
+    - target: {fileID: 185392064, guid: 5a3c93d85711f457ca056d3302f2e5cf, type: 3}
+      propertyPath: m_text
+      value: 'Highscore: 5'
+      objectReference: {fileID: 0}
+    - target: {fileID: 161388792043056453, guid: 5a3c93d85711f457ca056d3302f2e5cf, type: 3}
+      propertyPath: m_text
+      value: 'Score: 5'
+      objectReference: {fileID: 0}
     - target: {fileID: 167209019830107625, guid: 5a3c93d85711f457ca056d3302f2e5cf, type: 3}
       propertyPath: m_Name
       value: ScoreManager

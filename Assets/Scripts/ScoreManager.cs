@@ -12,31 +12,27 @@ public class ScoreManager : MonoBehaviour
             {
                 GameObject go = new GameObject("ScoreManager");
                 go.AddComponent<ScoreManager>();
+                DontDestroyOnLoad(go);
             }
             return _instance;
         }
     }
 
-    public int score = 100;
+    private int score = 0;
+    private int highscore = 0;
     public TextMeshProUGUI scoreText; 
+    public TextMeshProUGUI highScoreText; 
 
-    private void Awake()
+     private void Awake()
     {
-        if (_instance != null)
+        if (_instance != null && _instance != this)
         {
             Destroy(gameObject);
             return;
         }
 
         _instance = this;
-
-        if (scoreText == null)
-        {    
-            if (scoreText == null)
-            {
-                Debug.LogError("Score Text UI element is not assigned!");
-            }
-        }           
+        DontDestroyOnLoad(gameObject);
         UpdateScoreDisplay();
     }
 
@@ -52,5 +48,18 @@ public class ScoreManager : MonoBehaviour
         {
             scoreText.text = "Score: " + score.ToString();
         }
+        if (highScoreText != null)
+        {
+            highScoreText.text = "Highscore: " + highscore.ToString();
+        }
+    }
+    public void ResetScore()
+    {
+        if(highscore < score)
+        {
+            highscore = score;
+        }
+        score = 0;
+        UpdateScoreDisplay();
     }
 }
