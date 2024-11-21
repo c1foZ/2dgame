@@ -5,7 +5,7 @@ public class CameraFollow : MonoBehaviour
     private Transform player;
     private Vector3 tempPos;
     private string _player = "Player";
-    private float minX = -25f, maxX = 25f;
+    private float minX = -2f, maxX = 2;
 
     private void Start()
     {
