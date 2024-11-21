@@ -15,12 +15,20 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
+    public GameObject scoreManagerPrefab;
     private string _pauseMenuSceneName = "Pause";
     private string _restartRound = "RestartRound";
     private void Awake()
     {
         _instance = this;
     }
+    private void Start()
+{
+    if (ScoreManager.Instance == null)
+    {
+        Instantiate(scoreManagerPrefab);
+    }
+}
     public void StartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

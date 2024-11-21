@@ -22,6 +22,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collisionInfo.collider.tag == _bullet)
         {
+            ScoreManager.Instance.AddScore(1);
             Destroy(gameObject);
         }
     }

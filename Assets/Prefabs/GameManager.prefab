@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f47b124bd64524ade9bedaf994f7ed2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreManagerPrefab: {fileID: 167209019830107625, guid: 5a3c93d85711f457ca056d3302f2e5cf, type: 3}
