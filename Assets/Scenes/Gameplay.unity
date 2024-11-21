@@ -1489,18 +1489,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 185392063, guid: 5a3c93d85711f457ca056d3302f2e5cf, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 835
-      objectReference: {fileID: 0}
-    - target: {fileID: 185392064, guid: 5a3c93d85711f457ca056d3302f2e5cf, type: 3}
-      propertyPath: m_text
-      value: 'Highscore: 5'
-      objectReference: {fileID: 0}
-    - target: {fileID: 161388792043056453, guid: 5a3c93d85711f457ca056d3302f2e5cf, type: 3}
-      propertyPath: m_text
-      value: 'Score: 5'
-      objectReference: {fileID: 0}
     - target: {fileID: 167209019830107625, guid: 5a3c93d85711f457ca056d3302f2e5cf, type: 3}
       propertyPath: m_Name
       value: ScoreManager
