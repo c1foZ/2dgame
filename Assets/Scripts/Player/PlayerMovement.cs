@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private string WALK_ANIMATION = "Walk";
     private string DIE_ANIMATION = "Die";
+    private bool _isPaused = false;
     private bool _isMoving;
     private bool _isFlipped;
     private float _movementX;
@@ -22,8 +23,18 @@ public class PlayerMovement : MonoBehaviour
         body = GetComponent<Transform>();
         anim = GetComponent<Animator>();
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameManager.Instance.PauseGame();
+        }
+    }
     private void FixedUpdate()
     {
+        if (_isPaused) return; 
+
         if (!_isMoving)
         {
             if (Input.GetKey(KeyCode.W) && _isOnGround)
@@ -106,6 +117,19 @@ public class PlayerMovement : MonoBehaviour
          _isMoving = true; 
         yield return new WaitForSeconds(delay); 
         _isMoving = false;  
+    }
+
+    public void TogglePause()
+    {
+        _isPaused = !_isPaused;
+        if (_isPaused)
+        {
+            Time.timeScale = 0f; 
+        }
+        else
+        {
+            Time.timeScale = 1f; 
+        }
     }
    
 }

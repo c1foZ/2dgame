@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
+    private string _pauseMenuSceneName = "Pause";
     private string _restartRound = "RestartRound";
     private void Awake()
     {
@@ -34,6 +35,18 @@ public class GameManager : MonoBehaviour
     }
     public void QuitGame()
     {
+        Debug.Log("Closing game...");
         Application.Quit();
+    }
+    public void PauseGame()
+    {
+        Time.timeScale = 0f; 
+        SceneManager.LoadScene(_pauseMenuSceneName, LoadSceneMode.Additive);
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1f;
+        SceneManager.UnloadSceneAsync(_pauseMenuSceneName);
     }
 }
